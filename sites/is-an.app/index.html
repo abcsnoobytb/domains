@@ -1,88 +1,204 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>is-an.app domain</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ABC's Noob Cash</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
 
-  <link rel="apple-touch-icon" sizes="152x152" href="favicon/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
-  <!-- <link rel="manifest" href="webmanifest.json">-->
-  <link rel="mask-icon" href="favicon/safari-pinned-tab.svg" color="#5bbad5">
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
 
-  <style>
-    :root {
-      --color-bg-primary: #fff;
-      --color-bg-secondary: #00a6d5;
-      --color-bg-inverted: #151515;
-      --color-text-primary: #151515;
-      --color-text-inverted: #fff;
-    }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
 
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --color-bg-primary: #2f2f2f;
-        --color-bg-secondary: #3bc1e1;
-        --color-bg-inverted: #fff;
-        --color-text-primary: #fff;
-        --color-text-inverted: #2f2f2f;
-      }
-    }
+        header h1 {
+            font-size: 24px;
+            color: #333;
+        }
 
-    body, html {
-      background-color: var(--color-bg-primary);
-      color: var(--color-text-primary);
-      font-family: sans-serif;
-      font-size: 16px;
-      margin: 0;
-      padding: 0;
-      height: 100vh;
-    }
+        nav {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 20px;
+        }
 
-    body {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
+        nav button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
 
-    main {
-      width: 800px;
-    }
+        nav button:hover {
+            background-color: #0056b3;
+        }
 
-    header {
-      margin-bottom: 2em;
-    }
+        section {
+            display: none;
+            margin-bottom: 20px;
+        }
 
-    .url {
-      position: relative;
-      background-color: var(--color-bg-secondary);
-      color: var(--color-text-inverted);
-      padding: 10px 20px;
-      font-weight: 700;
-      font-size: 3em;
-      z-index: 1;
-    }
+        section.active {
+            display: block;
+        }
 
-    p {
-      font-size: 1.4em;
-      font-weight: 400;
-      padding: 1em 0 0 0;
-      margin: 0;
-      line-height: 1.5;
-    }
+        form {
+            background-color: #fafafa;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
 
-    a {
-      color: var(--color-bg-secondary);
-    }
-  </style>
+        form label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        form input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        form .checkbox-container {
+            margin-bottom: 10px;
+        }
+
+        form .checkbox-container input {
+            margin-right: 10px;
+        }
+
+        button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+        .close-btn {
+            background-color: #dc3545;
+            color: white;
+            border: none;
+            padding: 5px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .close-btn:hover {
+            background-color: #c82333;
+        }
+    </style>
 </head>
 <body>
-<main>
-  <header>
-    <span class="url">https://is-an.app</span>
-  </header>
-</main>
+<div class="container">
+    <header>
+        <h1>ABC's Noob Cash</h1>
+    </header>
 
+    <nav>
+        <button onclick="showSection('login')">Đăng nhập / Đăng ký</button>
+        <button onclick="showSection('balance')">Xem Ruby</button>
+        <button onclick="showSection('transfer')">Chuyển Ruby</button>
+        <button onclick="showSection('shop')">Mua Hàng</button>
+        <button onclick="showSection('reward')">Nhận Thưởng</button>
+    </nav>
+
+    <!-- Đăng nhập / Đăng ký -->
+    <section id="login" class="active">
+        <h2>Đăng nhập hoặc Đăng ký</h2>
+        <form method="POST" action="auth.php">
+            <label for="username">Tên người dùng:</label>
+            <input type="text" id="username" name="username" required>
+            
+            <label for="password">Mật khẩu:</label>
+            <input type="password" id="password" name="password" required>
+            
+            <button type="submit" name="action" value="login">Đăng nhập</button>
+            <button type="submit" name="action" value="register">Đăng ký</button>
+        </form>
+    </section>
+
+    <!-- Xem Ruby -->
+    <section id="balance">
+        <h2>Số dư Ruby của bạn:</h2>
+        <p><strong>100 Ruby</strong></p> <!-- Thay số Ruby thực tế bằng PHP -->
+    </section>
+
+    <!-- Chuyển Ruby -->
+    <section id="transfer">
+        <h2>Chuyển Ruby</h2>
+        <form method="POST" action="transfer_ruby.php">
+            <label for="recipient">Người nhận:</label>
+            <input type="text" id="recipient" name="recipient" required>
+            
+            <label for="amount">Số lượng Ruby:</label>
+            <input type="number" id="amount" name="amount" min="1" required>
+            
+            <label for="username">Tên người dùng:</label>
+            <input type="text" id="username" name="username" required>
+            
+            <label for="password">Mật khẩu:</label>
+            <input type="password" id="password" name="password" required>
+            
+            <div class="checkbox-container">
+                <input type="checkbox" id="agreement1" required>
+                <label for="agreement1">Tôi đã đồng ý với giao dịch này</label>
+            </div>
+            
+            <button type="submit">Chuyển</button>
+        </form>
+    </section>
+
+    <!-- Mua Hàng -->
+    <section id="shop">
+        <h2>Mua Hàng</h2>
+        <p>Hiện đang phát triển, chưa thể mua ngay.</p>
+    </section>
+
+    <!-- Nhận Thưởng -->
+    <section id="reward">
+        <h2>Nhận Thưởng</h2>
+        <p>COMMING SOON</p>
+    </section>
+</div>
+
+<script>
+    function showSection(sectionId) {
+        document.querySelectorAll('section').forEach(function(section) {
+            section.classList.remove('active');
+        });
+        document.getElementById(sectionId).classList.add('active');
+    }
+</script>
 </body>
 </html>
